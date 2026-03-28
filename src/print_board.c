@@ -14,16 +14,29 @@
 #include <stddef.h>
 #include <unistd.h>
 
+static int get_biggest_line(int *game_state, size_t nb_line) {
+  size_t i;
+  int biggest = 0;
+
+  i = 0;
+  while (i < nb_line) {
+    if (game_state[i] > biggest)
+      biggest = game_state[i];
+    i++;
+  }
+  return (biggest);
+}
+
 void print_board(int *game_state, size_t nb_line) {
-  int size_of_first;
+  int biggest_line;
   size_t i;
   int j;
 
   i = -1;
-  size_of_first = game_state[0];
+  biggest_line = get_biggest_line(game_state, nb_line);
   while (++i < nb_line) {
     j = -1;
-    while (++j < size_of_first - game_state[i])
+    while (++j < biggest_line - game_state[i])
       write(1, " ", 1);
     j = -1;
     while (++j < game_state[i]) {
@@ -32,7 +45,7 @@ void print_board(int *game_state, size_t nb_line) {
         write(1, " ", 1);
     }
     j = -1;
-    while (++j < size_of_first - game_state[i])
+    while (++j < biggest_line - game_state[i])
       write(1, " ", 1);
     write(1, "\n", 1);
   }

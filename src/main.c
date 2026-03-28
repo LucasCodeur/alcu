@@ -40,11 +40,6 @@ int main(int argc, char *argv[])
     ft_putstr_fd("ERROR", 2);
     return (1);
   }
-  if (size < 0)
-  {
-    ft_putstr_fd("ERROR", 2);
-    return (1);
-  }
   int* lines = fill_array(fd, size);
   if (!lines)
     return (1);
