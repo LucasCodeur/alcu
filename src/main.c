@@ -17,31 +17,86 @@
 #include "../libft/libft.h"
 #include "alcu.h"
 
-int main(int argc, char *argv[])
-{
-  if (argc != 2)
-  {
+void game(int *lines, int size) {
+  int ai_turn = 1;
+  int nb_read;
+  int choice;
+
+  for (int i = size - 1; i >= 0; i--) {
+    while (lines[i] != 0) {
+      char buffer[100] = "";
+      // ft_putstr_fd("Player : ", 1);
+      // char* choice = ft_itoa(i % 2 == 0 ? 1 : 2);
+      // ft_putstr_fd(choice, 1);
+      // ft_putstr_fd("\n", 1);
+      if (!ai_turn) {
+        print_board(lines, size);
+        ft_putstr_fd("\nPlease choose between 1 and 3 items\n", 1);
+        nb_read = read(0, buffer, sizeof(buffer));
+        // char *temp = NULL;
+        if (nb_read > 0) {
+          choice = ft_atoi(buffer);
+          // temp = ft_itoa(choice);
+          // ft_putstr_fd(temp, 1);
+          if (choice > 0 && choice < 4) {
+            if (choice > lines[i]) {
+              ft_putstr_fd("-", 1);
+              ft_putstr_fd("\n", 1);
+              ft_putstr_fd("Invalid choice\n", 1);
+              i++;
+              // free(temp);
+              continue;
+            }
+            lines[i] -= choice;
+          } else {
+            ft_putstr_fd("-", 1);
+            ft_putstr_fd("\n", 1);
+            ft_putstr_fd("Invalid choice\n", 1);
+            i++;
+            // free(temp);
+            continue;
+          }
+        }
+      } else {
+        print_board(lines, size);
+        ft_putstr_fd("\n", 1);
+        choice = ai(lines, size);
+        ft_putstr_fd("AI play ", 1);
+        ft_putnbr_fd(choice, 1);
+        ft_putstr_fd("\n\n", 1);
+        lines[i] -= choice;
+      }
+      ai_turn = ai_turn == 0;
+    }
+  }
+  if (!ai_turn)
+    ft_putstr_fd("AI win ! It will replace you\n", 1);
+  else
+    ft_putstr_fd("You win ! Well done\n", 1);
+}
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
     ft_putstr_fd("ERROR", 2);
     return (1);
   }
 
   int fd = open(argv[1], O_RDONLY);
 
-  if (fd == -1)
-  {
+  if (fd == -1) {
     ft_putstr_fd("ERROR", 2);
     return (1);
   }
 
   int size = check_input(fd);
-  if (size < 0)
-  {
+  if (size < 0) {
     ft_putstr_fd("ERROR", 2);
     return (1);
   }
 
+  close(fd);
   fd = open(argv[1], O_RDONLY);
-  int* lines = fill_array(fd, size);
+  int *lines = fill_array(fd, size);
   if (!lines)
     return (1);
 
@@ -51,49 +106,7 @@ int main(int argc, char *argv[])
   // }
 
   // int player = 1;
-  for (int i = size - 1; i >= 0; i--)
-  {
-    while (lines[i] != 0)
-    {
-      char buffer[100] = "";
-      // ft_putstr_fd("Player : ", 1);
-      // char* choice = ft_itoa(i % 2 == 0 ? 1 : 2);
-      // ft_putstr_fd(choice, 1);
-      // ft_putstr_fd("\n", 1);
-      ft_putstr_fd("Please choose between 1 and 3 items\n", 1);
-      print_board(lines, size);
-      int	nb_read = read(0, buffer, sizeof(buffer));
-      char* temp = NULL;
-      if (nb_read > 0)
-      {
-	int choice = ft_atoi(buffer);
-	// temp = ft_itoa(choice);
-	// ft_putstr_fd(temp, 1);
-	if (choice > 0 && choice < 4)
-	{
-	 if (choice > lines[i])
-	 {
-	    ft_putstr_fd("-", 1);
-	    ft_putstr_fd("\n", 1);
-	    ft_putstr_fd("Invalid choice\n", 1);
-	    i++;
-	    free(temp);
-	    continue ;
-	 }
-	  lines[i] -= choice; 
-	}
-	else
-	{
-	  ft_putstr_fd("-", 1);
-	  ft_putstr_fd("\n", 1);
-	  ft_putstr_fd("Invalid choice\n", 1);
-	  i++;
-	  free(temp);
-	  continue ;
-	}
-      }
-    }
-  }
+  game(lines, size);
   close(fd);
   free(lines);
   return (0);

@@ -18,6 +18,7 @@
 char *read_file(int fd);
 int check_input(int fd);
 void print_board(int *game_state, size_t nb_line);
-int	*fill_array(int fd, int size);
+int *fill_array(int fd, int size);
+int ai(int *gamestate, int nb_line);
 
 #endif
