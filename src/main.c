@@ -12,58 +12,70 @@
 
 #include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 #include "../libft/libft.h"
 #include "alcu.h"
+#include "get_next_line.h"
+
+int check_char_int(char *str) {
+  int i;
+
+  i = -1;
+  while (str[++i] && i < 100)
+    if (!(str[i] >= '0' && str[i] <= '9') && str[i] != '\n')
+      return (0);
+
+  return (1);
+}
+
+void player_turn(int *line) {
+  char *temp;
+  int choice;
+
+  while (1) {
+    ft_putstr_fd("\nPlease choose between 1 and 3 items\n", 1);
+    temp = get_next_line(0);
+    if (temp && ft_strlen(temp) > 0) {
+      if (!check_char_int(temp)) {
+        free(temp);
+        continue;
+      }
+      choice = ft_atoi(temp);
+      free(temp);
+      if (choice > 0 && choice < 4) {
+        if (choice > *line) {
+          ft_putstr_fd("-\nInvalid choice\n", 1);
+          continue;
+        }
+        *line -= choice;
+        break;
+      } else {
+        ft_putstr_fd("-\nInvalid choice\n", 1);
+        continue;
+      }
+    }
+  }
+}
 
 void game(int *lines, int size) {
   int ai_turn = 1;
-  int nb_read;
   int choice;
 
   for (int i = size - 1; i >= 0; i--) {
     while (lines[i] != 0) {
-      char buffer[100] = "";
-      // ft_putstr_fd("Player : ", 1);
-      // char* choice = ft_itoa(i % 2 == 0 ? 1 : 2);
-      // ft_putstr_fd(choice, 1);
-      // ft_putstr_fd("\n", 1);
+      ft_putstr_fd("\n------------------------------\n", 1);
       if (!ai_turn) {
         print_board(lines, size);
-        ft_putstr_fd("\nPlease choose between 1 and 3 items\n", 1);
-        nb_read = read(0, buffer, sizeof(buffer));
-        // char *temp = NULL;
-        if (nb_read > 0) {
-          choice = ft_atoi(buffer);
-          // temp = ft_itoa(choice);
-          // ft_putstr_fd(temp, 1);
-          if (choice > 0 && choice < 4) {
-            if (choice > lines[i]) {
-              ft_putstr_fd("-", 1);
-              ft_putstr_fd("\n", 1);
-              ft_putstr_fd("Invalid choice\n", 1);
-              i++;
-              // free(temp);
-              continue;
-            }
-            lines[i] -= choice;
-          } else {
-            ft_putstr_fd("-", 1);
-            ft_putstr_fd("\n", 1);
-            ft_putstr_fd("Invalid choice\n", 1);
-            i++;
-            // free(temp);
-            continue;
-          }
-        }
+        player_turn(&lines[i]);
       } else {
         print_board(lines, size);
         ft_putstr_fd("\n", 1);
         choice = ai(lines, size);
         ft_putstr_fd("AI play ", 1);
         ft_putnbr_fd(choice, 1);
-        ft_putstr_fd("\n\n", 1);
+        ft_putstr_fd("\n", 1);
         lines[i] -= choice;
       }
       ai_turn = ai_turn == 0;

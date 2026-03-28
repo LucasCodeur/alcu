@@ -15,15 +15,12 @@
 static int best_to_take(int prev_should_start, int line) {
   int best;
 
-  if (prev_should_start) {
+  if (prev_should_start)
     best = 2;
-    while (best <= line - 2)
-      best += 2;
-  } else {
+  else
     best = 1;
-    while (best <= line - 4) {
-      best += 4;
-    }
+  while (best <= line - 4) {
+    best += 4;
   }
   return (best);
 }
