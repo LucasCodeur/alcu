@@ -34,34 +34,67 @@ int main(int argc, char *argv[])
   }
 
   int size = check_input(fd);
-  printf("size %d\n", size);
   if (size < 0)
   {
     ft_putstr_fd("ERROR", 2);
     return (1);
   }
+
+  fd = open(argv[1], O_RDONLY);
   int* lines = fill_array(fd, size);
   if (!lines)
     return (1);
-  for (int i = 0; i < size; i++)
+
+  // for (int i = 0; i < size; i++)
+  // {
+  //   printf("lines[i] : %d\n", lines[i]);
+  // }
+
+  // int player = 1;
+  for (int i = size - 1; i >= 0; i--)
   {
-    char buffer[100] = "";
-    ft_putstr_fd("Player : ", 1);
-    char* temp = ft_itoa(i % 2 == 0 ? 1 : 2);
-    ft_putstr_fd(temp, 1);
-    ft_putstr_fd("\n", 1);
-    ft_putstr_fd("Enter the number of matchs to take off: ", 1);
-    int	nb_read = read(0, buffer, sizeof(buffer));
-    if (nb_read > 0)
+    while (lines[i] != 0)
     {
-      int temp = ft_atoi(buffer); 
-      if (temp > 1 && temp < 4)
-	lines[i] -= temp; 
-      else
-	ft_putstr_fd("Between 1 and 3", fd);
-      print_board(lines, 5);
+      char buffer[100] = "";
+      // ft_putstr_fd("Player : ", 1);
+      // char* choice = ft_itoa(i % 2 == 0 ? 1 : 2);
+      // ft_putstr_fd(choice, 1);
+      // ft_putstr_fd("\n", 1);
+      ft_putstr_fd("Please choose between 1 and 3 items\n", 1);
+      print_board(lines, size);
+      int	nb_read = read(0, buffer, sizeof(buffer));
+      char* temp = NULL;
+      if (nb_read > 0)
+      {
+	int choice = ft_atoi(buffer);
+	// temp = ft_itoa(choice);
+	// ft_putstr_fd(temp, 1);
+	if (choice > 0 && choice < 4)
+	{
+	 if (choice > lines[i])
+	 {
+	    ft_putstr_fd("-", 1);
+	    ft_putstr_fd("\n", 1);
+	    ft_putstr_fd("Invalid choice\n", 1);
+	    i++;
+	    free(temp);
+	    continue ;
+	 }
+	  lines[i] -= choice; 
+	}
+	else
+	{
+	  ft_putstr_fd("-", 1);
+	  ft_putstr_fd("\n", 1);
+	  ft_putstr_fd("Invalid choice\n", 1);
+	  i++;
+	  free(temp);
+	  continue ;
+	}
+      }
     }
   }
   close(fd);
+  free(lines);
   return (0);
 }

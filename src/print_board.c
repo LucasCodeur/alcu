@@ -34,7 +34,7 @@ void print_board(int *game_state, size_t nb_line) {
 
   i = -1;
   biggest_line = get_biggest_line(game_state, nb_line);
-  while (++i < nb_line) {
+  while (++i < nb_line && game_state[i] != 0) {
     j = -1;
     while (++j < biggest_line - game_state[i])
       write(1, " ", 1);
