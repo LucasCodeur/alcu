@@ -6,11 +6,12 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 15:07:17 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/03/28 15:13:54 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/03/28 16:04:59 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 #include "../libft/libft.h"
 
 size_t ft_strlen_with_c(char *str, char c) {
@@ -94,22 +95,24 @@ static char *get_the_line(int fd, char *buffer) {
   i = 0;
   nb_read = 0;
   line = NULL;
-  if (buffer[0] != '\0') {
-    line = build_line(buffer, NULL, &i);
-    if (!line)
-      return (NULL);
-    ft_memcpy(buffer, buffer + i + 1, ft_strlen_with_c(buffer + i, '\0'));
+  if (buffer[0] != '\0')
+  {
+	  line = build_line(buffer, NULL, &i);
+	  if (!line)
+		  return (NULL);
+	  ft_memcpy(buffer, buffer + i + 1, ft_strlen_with_c(buffer + i, '\0'));
   }
-  while (detect_newline(line) == 0) {
-    read_file(fd, buffer, &nb_read);
-    if (nb_read < 0)
-      return (free(line), NULL);
-    if (nb_read == 0)
-      break;
-    line = build_line(buffer, line, &i);
-    ft_memcpy(buffer, buffer + i + 1, ft_strlen_with_c(buffer + i, '\0'));
+  while (detect_newline(line) == 0)
+  {
+	  read_file(fd, buffer, &nb_read);
+	  if (nb_read < 0)
+		  return (free(line), NULL);
+	  if (nb_read == 0)
+		  break ;
+	  line = build_line(buffer, line, &i);
+	  ft_memcpy(buffer, buffer + i + 1, ft_strlen_with_c(buffer + i, '\0'));
   }
-  return (line);
+      return (line);
 }
 
 char *get_next_line(int fd) {

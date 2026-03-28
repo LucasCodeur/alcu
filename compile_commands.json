@@ -1,0 +1,53 @@
+[
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-I",
+   "inc/",
+   "-c",
+   "src/main.c",
+   "-o",
+   ".obj/main.o"
+  ],
+  "file": "src/main.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-I",
+   "inc/",
+   "-c",
+   "src/fill_array.c",
+   "-o",
+   ".obj/fill_array.o"
+  ],
+  "file": "src/fill_array.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-I",
+   "inc/",
+   "-c",
+   "src/check_input.c",
+   "-o",
+   ".obj/check_input.o"
+  ],
+  "file": "src/check_input.c"
+ }
+]
