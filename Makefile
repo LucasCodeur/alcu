@@ -27,7 +27,8 @@ SRC = main.c \
       fill_array.c \
       check_input.c \
 			print_board.c	\
-			ai.c
+			ai.c \
+			game.c
 
 SRCS = $(addprefix $(P_SRC), $(SRC))
 OBJS = $(patsubst $(P_SRC)%.c,$(P_OBJ)%.o,$(SRCS))
