@@ -36,8 +36,8 @@ int main(int argc, char *argv[]) {
     ft_putstr_fd("ERROR", 2);
     return (1);
   }
-  int test[] = {8, 5, 3, 2, 1};
-  print_board(test, 5);
+  int test[] = {8, 5, 3, 2, 1, 11};
+  print_board(test, 6);
   return (0);
   close(fd);
 }
