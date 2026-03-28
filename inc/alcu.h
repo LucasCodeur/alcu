@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 
 #ifndef ALCU_H
-# define ALCU_H
+#define ALCU_H
+
+#include <stddef.h>
 
 char *read_file(int fd);
 int check_input(int fd);
+void print_board(int *game_state, size_t nb_line);
 
 #endif
