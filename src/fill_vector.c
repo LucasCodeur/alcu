@@ -1,35 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_array.c                                       :+:      :+:    :+:   */
+/*   fill_vector.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 13:21:46 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/03/28 20:53:02 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/03/29 14:58:09 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+
 #include "get_next_line.h"
 
-int	*fill_array(int fd, int size)
-{
-	int		*res;
-	char	*line;
-	int		i;
+#include "alcu.h"
 
-	res = malloc(sizeof(int) * size);
-	if (res == NULL)
-		return (NULL);
+bool fill_vector(t_vector* lines, int fd)
+{
+	char	*line;
+
 	line = get_next_line(fd);
-	i = 0;
 	while (line != NULL)
 	{
+		lines->pfVectorAdd(lines, line);
+		line = get_next_line(fd);
+	}
+	return (true);
+}
+
+int*	fill_array(t_vector* lines, int* size)
+{
+	int*	res;
+	int		i;
+	char*	line;
+
+	i = 0;
+	line = NULL;
+	*size = lines->pfVectorTotal(lines);
+	res = malloc(sizeof(int) * *size);
+	if (!res)
+		return (NULL);
+	while (i < *size)
+	{
+		line = (char*)lines->pfVectorGet(lines, i);
 		res[i] = ft_atoi(line);
 		i++;
-		free(line);
-		line = get_next_line(fd);
 	}
 	return (res);
 }

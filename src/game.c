@@ -69,6 +69,8 @@ static void	player_turn(int *line)
 		if (temp)
 			free(temp);
 	}
+	if (temp)
+		free(temp);
 }
 
 static void	play_turns(int *lines, int i, int *ai_turn, int size)

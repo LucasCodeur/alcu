@@ -7,8 +7,8 @@
    "-Wextra",
    "-Werror",
    "-MMD",
-   "-I",
-   "inc/",
+   "-Iinc/",
+   "-Ilibft/",
    "-c",
    "src/main.c",
    "-o",
@@ -24,8 +24,8 @@
    "-Wextra",
    "-Werror",
    "-MMD",
-   "-I",
-   "inc/",
+   "-Iinc/",
+   "-Ilibft/",
    "-c",
    "src/fill_array.c",
    "-o",
@@ -41,13 +41,676 @@
    "-Wextra",
    "-Werror",
    "-MMD",
-   "-I",
-   "inc/",
+   "-Iinc/",
+   "-Ilibft/",
    "-c",
    "src/check_input.c",
    "-o",
    ".obj/check_input.o"
   ],
   "file": "src/check_input.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-Iinc/",
+   "-Ilibft/",
+   "-c",
+   "src/get_next_line.c",
+   "-o",
+   ".obj/get_next_line.o"
+  ],
+  "file": "src/get_next_line.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-Iinc/",
+   "-Ilibft/",
+   "-c",
+   "src/print_board.c",
+   "-o",
+   ".obj/print_board.o"
+  ],
+  "file": "src/print_board.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-Iinc/",
+   "-Ilibft/",
+   "-c",
+   "src/ai.c",
+   "-o",
+   ".obj/ai.o"
+  ],
+  "file": "src/ai.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-Iinc/",
+   "-Ilibft/",
+   "-c",
+   "src/game.c",
+   "-o",
+   ".obj/game.o"
+  ],
+  "file": "src/game.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MMD",
+   "-Iinc/",
+   "-Ilibft/",
+   "-c",
+   "src/vector.c",
+   "-o",
+   ".obj/vector.o"
+  ],
+  "file": "src/vector.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_isdigit.o",
+   "-c",
+   "ft_isdigit.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_isdigit.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_isalpha.o",
+   "-c",
+   "ft_isalpha.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_isalpha.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_isalnum.o",
+   "-c",
+   "ft_isalnum.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_isalnum.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_isascii.o",
+   "-c",
+   "ft_isascii.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_isascii.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_isprint.o",
+   "-c",
+   "ft_isprint.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_isprint.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strlen.o",
+   "-c",
+   "ft_strlen.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strlen.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_memset.o",
+   "-c",
+   "ft_memset.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_memset.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_bzero.o",
+   "-c",
+   "ft_bzero.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_bzero.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_memcpy.o",
+   "-c",
+   "ft_memcpy.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_memcpy.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_memmove.o",
+   "-c",
+   "ft_memmove.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_memmove.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strlcpy.o",
+   "-c",
+   "ft_strlcpy.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strlcpy.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strlcat.o",
+   "-c",
+   "ft_strlcat.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strlcat.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_toupper.o",
+   "-c",
+   "ft_toupper.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_toupper.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_tolower.o",
+   "-c",
+   "ft_tolower.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_tolower.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strchr.o",
+   "-c",
+   "ft_strchr.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strchr.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strrchr.o",
+   "-c",
+   "ft_strrchr.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strrchr.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strncmp.o",
+   "-c",
+   "ft_strncmp.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strncmp.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_memcmp.o",
+   "-c",
+   "ft_memcmp.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_memcmp.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_memchr.o",
+   "-c",
+   "ft_memchr.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_memchr.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strnstr.o",
+   "-c",
+   "ft_strnstr.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strnstr.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_atoi.o",
+   "-c",
+   "ft_atoi.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_atoi.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_calloc.o",
+   "-c",
+   "ft_calloc.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_calloc.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strdup.o",
+   "-c",
+   "ft_strdup.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strdup.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_substr.o",
+   "-c",
+   "ft_substr.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_substr.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strjoin.o",
+   "-c",
+   "ft_strjoin.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strjoin.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strtrim.o",
+   "-c",
+   "ft_strtrim.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strtrim.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_split.o",
+   "-c",
+   "ft_split.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_split.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_itoa.o",
+   "-c",
+   "ft_itoa.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_itoa.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_strmapi.o",
+   "-c",
+   "ft_strmapi.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_strmapi.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_striteri.o",
+   "-c",
+   "ft_striteri.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_striteri.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_putchar_fd.o",
+   "-c",
+   "ft_putchar_fd.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_putchar_fd.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_putstr_fd.o",
+   "-c",
+   "ft_putstr_fd.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_putstr_fd.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_putendl_fd.o",
+   "-c",
+   "ft_putendl_fd.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_putendl_fd.c"
+ },
+ {
+  "directory": "/home/lud-adam/Documents/rush/libft",
+  "arguments": [
+   "cc",
+   "-MMD",
+   "-MP",
+   "-o",
+   "ft_putnbr_fd.o",
+   "-c",
+   "ft_putnbr_fd.c",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Ilibft.h"
+  ],
+  "file": "ft_putnbr_fd.c"
  }
 ]

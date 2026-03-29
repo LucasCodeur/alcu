@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/18 12:51:21 by lud-adam          #+#    #+#              #
-#    Updated: 2026/03/28 15:07:38 by lud-adam         ###   ########.fr        #
+#    Updated: 2026/03/29 14:43:31 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,15 @@ P_OBJ = .obj/
 P_INC = inc/
 P_LIBFT = libft/
 
-SRC = main.c \
-      get_next_line.c \
-      fill_array.c \
-      check_input.c \
-			print_board.c	\
-			ai.c \
-			game.c
+SRC =  \
+	main.c \
+	get_next_line.c \
+	fill_vector.c \
+	check_input.c \
+	print_board.c	\
+	ai.c \
+	game.c \
+	vector.c
 
 SRCS = $(addprefix $(P_SRC), $(SRC))
 OBJS = $(patsubst $(P_SRC)%.c,$(P_OBJ)%.o,$(SRCS))
