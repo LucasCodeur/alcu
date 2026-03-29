@@ -15,37 +15,43 @@
 #include "get_next_line.h"
 
 #include "alcu.h"
+#include <stdbool.h>
 
-bool fill_vector(t_vector* lines, int fd)
-{
-	char	*line;
+bool fill_vector(t_vector *lines, int fd) {
+  char *line;
 
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		lines->pfVectorAdd(lines, line);
-		line = get_next_line(fd);
-	}
-	return (true);
+  line = get_next_line(fd);
+  if (!line)
+    return (false);
+  while (line != NULL) {
+    if (!ft_strncmp("\n", line, ft_strlen(line))) {
+      free(line);
+      return (true);
+    }
+    if (lines->pfVectorAdd(lines, line) == UNDEFINE) {
+      free(line);
+      return (false);
+    }
+    line = get_next_line(fd);
+  }
+  return (false);
 }
 
-int*	fill_array(t_vector* lines, int* size)
-{
-	int*	res;
-	int		i;
-	char*	line;
+int *fill_array(t_vector *lines, int *size) {
+  int *res;
+  int i;
+  char *line;
 
-	i = 0;
-	line = NULL;
-	*size = lines->pfVectorTotal(lines);
-	res = malloc(sizeof(int) * *size);
-	if (!res)
-		return (NULL);
-	while (i < *size)
-	{
-		line = (char*)lines->pfVectorGet(lines, i);
-		res[i] = ft_atoi(line);
-		i++;
-	}
-	return (res);
+  i = 0;
+  line = NULL;
+  *size = lines->pfVectorTotal(lines);
+  res = malloc(sizeof(int) * *size);
+  if (!res)
+    return (NULL);
+  while (i < *size) {
+    line = (char *)lines->pfVectorGet(lines, i);
+    res[i] = ft_atoi(line);
+    i++;
+  }
+  return (res);
 }

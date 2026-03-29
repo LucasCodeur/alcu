@@ -52,9 +52,11 @@ $(LIBFT):
 
 clean:
 	rm -rf $(P_OBJ)
+	$(MAKE) -C $(P_LIBFT) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(P_LIBFT) fclean
 
 re: fclean all
 
