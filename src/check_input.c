@@ -32,7 +32,7 @@ bool	check_input(t_vector* lines)
 		line = (char*)lines->pfVectorGet(lines, j);
 		i = -1;
 		while (line[++i])
-			if (!(line[i] >= '0' && line[i] <= '9') && line[i] != '\n')
+			if ((!(line[i] >= '0' && line[i] <= '9') && line[i] != '\n') || i > 5)
 				return (false);
 		if (ft_atoi(line) < 1 || ft_atoi(line) > 10000)
 			return (false);

@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 12:30:29 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/03/29 14:58:10 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/03/29 16:31:17 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ int	main(int argc, char *argv[])
 		return (1);
 
 	}
-	if (argc == 1)
-		fd = open("/dev/tty", O_RDONLY);
-	// // fd = get_fd(argc, argv);
 	lines_int = fill_array(&lines, &size);
 	if (!lines_int)
 	{
